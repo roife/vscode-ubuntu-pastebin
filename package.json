@@ -1,0 +1,71 @@
+{
+	"name": "vscode-ubuntuPastebin",
+	"displayName": "Ubuntu Pastebin for VSCode",
+	"description": "This is a package which allows you to send code or text to Ubuntu Pastebin",
+	"publisher": "roife",
+	"keywords": [
+		"ubuntu",
+		"pastebin",
+		"code",
+		"share",
+		"upload"
+	],
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.39.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.ubuntuPastebin.uploadSelection",
+		"onCommand:extension.ubuntuPastebin.uploadFile"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.ubuntuPastebin.uploadSelection",
+				"title": "Upload selection to Ubuntu Pastebin"
+			},
+			{
+				"command": "extension.ubuntuPastebin.uploadFile",
+				"title": "Upload file to Ubuntu Pastebin"
+			}
+		],
+		"configuration": {
+			"title": "vscode-ubuntuPastebin",
+			"properties": {
+				"vscode-ubuntuPastebin.poster": {
+					"type": "string",
+					"default": "",
+					"description": "The poster name will be displayed on the page."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.39.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"typescript": "^3.3.1",
+		"tslint": "^5.12.1",
+		"vscode-test": "^1.2.0"
+	},
+	"dependencies": {
+		"axios": "^0.19.0",
+		"clipboardy": "^2.1.0",
+		"querystring": "^0.2.0",
+		"request": "^2.88.0"
+	}
+}
