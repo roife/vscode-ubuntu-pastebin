@@ -2,6 +2,18 @@
 
 All notable changes to the "vscode-ubuntu-pastebin" extension will be documented in this file.
 
+## [0.0.2] - 2019-10-28
+
+### Add
+
+- Support upload with custom poster name.
+
+- Add support for typescript.
+
+### Change
+
+- Improve README.
+
 ## [0.0.1] - 2019-10-28
 
 ### Add
