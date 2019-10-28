@@ -83,13 +83,14 @@ export function upload(poster: string, syntax: string, expiration: string, conte
     return p;
 }
 
-export function uploadMain(selectionOrFile: boolean) {
+export function uploadMain(selectionOrFile: boolean, customPoster: boolean) {
     let editor = vscode.window.activeTextEditor;
     if (editor === undefined) {
         vscode.window.showErrorMessage("There is no active text buffer.");
         return;
     }
 
+    // Get content
     let content = editor.document.getText();
 
     if (selectionOrFile) {
@@ -101,35 +102,43 @@ export function uploadMain(selectionOrFile: boolean) {
         content = editor.document.getText(selection);
     }
 
-    if(content === "" ){
+    if (content === "") {
         vscode.window.showErrorMessage("There is no content.");
         return;
     }
 
-    let p: Thenable < void > = Promise.resolve();
+    let p: Thenable < any > = Promise.resolve();
 
-    // Ask for poster if not defined
-    let config = vscode.workspace.getConfiguration('vscode-ubuntuPastebin');
-    if (config.get("poster") === undefined || config.get("poster") === "") {
+    // Set poster
+    let poster = "anonymous";
+    if (!customPoster) {
+        // Ask for poster if not defined
+        let config = vscode.workspace.getConfiguration('vscode-ubuntuPastebin');
+        if (config.get("poster") === undefined || config.get("poster") === "") {
+            p = ui.promptPoster()
+                .then(key => config.update("poster", key, vscode.ConfigurationTarget.Global));
+        }
+    } else {
         p = ui.promptPoster()
-            .then(key => config.update("poster", key, vscode.ConfigurationTarget.Global));
+            .then(key => poster = key);
     }
 
+    // Get language
     let lang = editor.document.languageId;
     lang = getLang(lang);
 
     p.then(() => ui.promptExpiration())
         .then(delay => {
-            let config = vscode.workspace.getConfiguration("vscode-ubuntuPastebin");
-            let poster = config.get("poster") as string;
-            // Upload the code
+            if (!customPoster) {
+                let config = vscode.workspace.getConfiguration("vscode-ubuntuPastebin");
+                poster = config.get("poster") as string;
+            }
             return upload(poster, lang, delay, content);
         })
         .then((url) => {
             // Write url to clipboard
             vscode.env.clipboard.writeText(url)
                 .then(() => vscode.window.showInformationMessage("Paste url copied to clipboard"));
-            // .catch((error:string) => vscode.window.showErrorMessage("An error occurred when accessing the clipboard: " + error));
         }, error => {
             vscode.window.showErrorMessage(error.message || error);
         });

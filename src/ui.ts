@@ -5,12 +5,11 @@ import * as vscode from 'vscode';
 export function promptPoster() {
     return vscode.window.showInputBox({
         placeHolder: "Poster",
-        prompt: ""
     }).then(poster => {
-        if(poster === undefined || poster === "") {
+        if(poster === undefined) {
             throw new Error("Cancelled on poster input.");
         }
-        return poster as string;
+        return (poster || "anonymous") as string;
     });
 }
 
