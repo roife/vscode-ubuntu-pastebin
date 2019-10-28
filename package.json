@@ -23,7 +23,9 @@
 	],
 	"activationEvents": [
 		"onCommand:extension.ubuntuPastebin.uploadSelection",
-		"onCommand:extension.ubuntuPastebin.uploadFile"
+		"onCommand:extension.ubuntuPastebin.uploadFile",
+		"onCommand:extension.ubuntuPastebin.uploadSelectionWithPoster",
+		"onCommand:extension.ubuntuPastebin.uploadFileWithPoster"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -35,6 +37,14 @@
 			{
 				"command": "extension.ubuntuPastebin.uploadFile",
 				"title": "Upload file to Ubuntu Pastebin"
+			},
+			{
+				"command": "extension.ubuntuPastebin.uploadSelectionWithPoster",
+				"title": "Upload selection to Ubuntu Pastebin with custom poster"
+			},
+			{
+				"command": "extension.ubuntuPastebin.uploadFileWithPoster",
+				"title": "Upload file to Ubuntu Pastebin with custom poster"
 			}
 		],
 		"configuration": {
