@@ -86,7 +86,7 @@ export function upload(poster: string, syntax: string, expiration: string, conte
 export function uploadMain(selectionOrFile: boolean, customPoster: boolean) {
     let editor = vscode.window.activeTextEditor;
     if (editor === undefined) {
-        vscode.window.showErrorMessage("There is no active text buffer.");
+        vscode.window.showErrorMessage("Ubuntu Pastebin: There is no active text buffer.");
         return;
     }
 
@@ -96,14 +96,14 @@ export function uploadMain(selectionOrFile: boolean, customPoster: boolean) {
     if (selectionOrFile) {
         let selection = editor.selection;
         if (selection.isEmpty) {
-            vscode.window.showErrorMessage("There is no selection.");
+            vscode.window.showErrorMessage("Ubuntu Pastebin: There is no selection.");
             return;
         }
         content = editor.document.getText(selection);
     }
 
     if (content === "") {
-        vscode.window.showErrorMessage("There is no content.");
+        vscode.window.showErrorMessage("Ubuntu Pastebin: There is no content.");
         return;
     }
 
@@ -138,7 +138,7 @@ export function uploadMain(selectionOrFile: boolean, customPoster: boolean) {
         .then((url) => {
             // Write url to clipboard
             vscode.env.clipboard.writeText(url)
-                .then(() => vscode.window.showInformationMessage("Paste url copied to clipboard"));
+                .then(() => vscode.window.showInformationMessage("Ubuntu Pastebin: Pastebin url copied to clipboard"));
         }, error => {
             vscode.window.showErrorMessage(error.message || error);
         });
