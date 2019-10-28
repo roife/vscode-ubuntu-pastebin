@@ -6,6 +6,7 @@
 		"url": "https://github.com/roife/vscode-ubuntu-pastebin"
 	},
 	"publisher": "roife",
+	"icon": "icon.png",
 	"keywords": [
 		"ubuntu",
 		"pastebin",
