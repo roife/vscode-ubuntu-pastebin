@@ -1,4 +1,4 @@
-# ubuntu-pastebin
+# vscode-ubuntu-pastebin
 
 Upload snippets to [Ubuntu Paste](https://paste.ubuntu.com) from VSCode.
 
