@@ -7,7 +7,7 @@ export function promptPoster() {
         placeHolder: "Poster",
     }).then(poster => {
         if(poster === undefined) {
-            throw new Error("Cancelled on poster input.");
+            throw new Error("Ubuntu Pastebin: Cancelled on poster input.");
         }
         return (poster || "anonymous") as string;
     });
@@ -25,12 +25,12 @@ export function promptExpiration() {
         placeHolder: "Paste expiration delay",
     }).then(delay => {
         if(delay === undefined || delay === "") {
-            throw new Error("Cancelled on delay input.");
+            throw new Error("Ubuntu Pastebin: Cancelled on delay input.");
         }
 
         var ret = expirations.find(exp => exp.name === delay);
         if(ret === undefined) {
-            throw new Error("Invalid delay");
+            throw new Error("Ubuntu Pastebin: Invalid delay");
         }
         return ret.delay;
     });
