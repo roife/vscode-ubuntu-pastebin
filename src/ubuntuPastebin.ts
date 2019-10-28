@@ -48,6 +48,9 @@ export function getLang(lang: string): string {
         case "jade":
             lang = "pag";
             break;
+        case "typescript":
+            lang = "ts";
+            break;
     }
     return lang;
 }
