@@ -66,9 +66,6 @@
 		"vscode-test": "^1.2.0"
 	},
 	"dependencies": {
-		"axios": "^0.19.0",
-		"clipboardy": "^2.1.0",
-		"querystring": "^0.2.0",
-		"request": "^2.88.0"
+		"axios": "^0.19.0"
 	}
 }

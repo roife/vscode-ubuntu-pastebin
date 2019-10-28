@@ -2,8 +2,10 @@
 
 All notable changes to the "ubuntu-pastebin" extension will be documented in this file.
 
-## [Unreleased]
-
 ## [0.0.1] - 2019-10-28
 
-- Initial release
+### Add
+
+- Upload the selection or the file to Ubuntu Pastebin, and save the link to the clipboard.
+
+- Automatically recognize the file type of the snippets.
