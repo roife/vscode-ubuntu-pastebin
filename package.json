@@ -1,7 +1,10 @@
 {
-	"name": "vscode-ubuntuPastebin",
+	"name": "ubuntu-pastebin",
 	"displayName": "Ubuntu Pastebin for VSCode",
-	"description": "This is a package which allows you to send code or text to Ubuntu Pastebin",
+	"description": "VSCode support for Ubuntu Pastebin",
+	"repository": {
+		"url": "https://github.com/roife/vscode-ubuntu-pastebin"
+	},
 	"publisher": "roife",
 	"keywords": [
 		"ubuntu",
