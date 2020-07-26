@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-ubuntu-pastebin" extension will be documented in this file.
 
+## [0.0.3] - 2020-07-26
+
+### Change
+
+- Fix typo.
+
 ## [0.0.2] - 2019-10-28
 
 ### Add

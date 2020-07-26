@@ -1,14 +1,14 @@
 # vscode-ubuntu-pastebin
 
-Upload snippets to [Ubuntu Paste](https://paste.ubuntu.com) from VSCode.
+Upload snippets to [Ubuntu Pastebin](https://paste.ubuntu.com) from VSCode.
 
 ![demo](demo.gif)
 
 ## Features
 
-- Upload the selection or the file to Ubuntu Pastebin, and save the link to the clipboard.
+- Upload a selection or a file to Ubuntu Pastebin, and copy the link to clipboard.
 
-- Automatically recognize the file type of the snippets.
+- Automatically detect the file type of snippets.
 
 ## Usage
 - `Upload selection to Ubuntu Pastebin`
